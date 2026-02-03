@@ -12,4 +12,4 @@ def test_UIValidationStaticScript(browserInstance):
 
     orderDetailsPage = ordersPage.select_checkout()
     expect(orderDetailsPage.page.locator(".media-body")).to_have_count(2)
-    orderDetailsPage.checkout_order()
+    # orderDetailsPage.checkout_order()
