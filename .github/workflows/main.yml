@@ -28,7 +28,7 @@ jobs:
 
       - name: Run Pytest tests
         run: |
-          cd playwright && pytest -v
+          pytest -v
 
       - name: Upload Test Report
         if: always()
