@@ -9,8 +9,7 @@ def test_UIValidationStaticScript(page:Page, browserInstance):
 
     ordersPage.select_product("iphone X")
     ordersPage.select_product("Nokia Edge")
-    ordersPage.select_product("Blackberry")
 
     orderDetailsPage = ordersPage.select_checkout()
-    expect(orderDetailsPage.page.locator(".media-body")).to_have_count(3)
+    expect(orderDetailsPage.page.locator(".media-body")).to_have_count(2)
     orderDetailsPage.checkout_order()

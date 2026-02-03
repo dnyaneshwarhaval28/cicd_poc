@@ -26,7 +26,6 @@ def browserInstance(playwright, request):
 
     context = browser.new_context()
     page = context.new_page()
-    #page.goto(url_name)
     yield page
     context.close()
     browser.close()
