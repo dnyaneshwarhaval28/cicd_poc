@@ -8,9 +8,12 @@ class OrderDetailsPage:
 
     def checkout_order(self):
         self.page.get_by_text("Checkout").click()
-        expect(self.page.locator("input[id='country']")).to_be_visible()
-        self.page.locator("#checkbox2").click()
-        self.page.get_by_text("Purchase").click()
+        expect(self.page.locator("input[id='country']")).to_be_visible
+        # self.page.locator("//input[@type='checkbox']").check()
+        # self.page.locator("//input[@type='submit']").click()
+        self.page.get_by_text("I agree with the term &").click()
+        self.page.get_by_text("Close").click()
+        self.page.get_by_role("button", name="Purchase").click()
         self.verifyOrderMessage()
 
     def verifyOrderMessage(self):
