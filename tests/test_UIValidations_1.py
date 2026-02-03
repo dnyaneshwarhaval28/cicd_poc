@@ -1,4 +1,4 @@
-from playwright.sync_api import Page, expect
+from playwright.sync_api import expect
 from pageObjects.login import LoginPage
 
 def test_UIValidationStaticScript(browserInstance):
