@@ -23,16 +23,16 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          pip install -r playwright/requirements.txt
           playwright install --with-deps
 
       - name: Run Pytest tests
         run: |
-          pytest -v
+          cd playwright && pytest -v
 
       - name: Upload Test Report
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: pytest-report
-          path: report.html
+          path: playwright/report.html
