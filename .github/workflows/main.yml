@@ -30,7 +30,7 @@ jobs:
 
       - name: Run Pytest tests
         run: |
-          pytest -v
+          pytest -v --html=report.html --self-contained-html
 
       - name: Upload Test Report
         if: always()
