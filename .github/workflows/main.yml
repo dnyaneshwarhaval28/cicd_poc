@@ -33,6 +33,11 @@ jobs:
         run: |
           pytest -v --html=report.html --self-contained-html --alluredir=allure-results
 
+      - name: Verify Allure Results
+        run: |
+          echo "Checking allure-results..."
+          ls -R allure-results
+
       # Install Allure CLI
       - name: Install Allure CLI
         run: |
