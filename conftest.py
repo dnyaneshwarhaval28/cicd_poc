@@ -1,6 +1,6 @@
 import pytest
 from playwright.sync_api import sync_playwright
-
+import allure
 
 def pytest_addoption(parser):
     parser.addoption(
@@ -31,4 +31,15 @@ def browserInstance(request):
         yield page
         context.close()
         browser.close()
+
+@pytest.hookimpl(hookwrapper=True)
+def pytest_runtest_makereport(item, call):
+    outcome = yield
+    report = outcome.get_result()
+
+    if report.when == "call" and report.failed:
+        if "page" in item.fixturenames:
+            page = item.funcargs["page"]
+            screenshot = page.screenshot()
+            allure.attach(screenshot, name="Failure Screenshot", attachment_type=allure.attachment_type.PNG)
 #2 times, 1st run opened browser and completed, homepage
