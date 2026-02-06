@@ -17,3 +17,4 @@ def test_UIValidationStaticScript(browserInstance):
     orderDetailsPage = ordersPage.select_checkout()
     expect(orderDetailsPage.page.locator(".media-body")).to_have_count(3)
     # orderDetailsPage.checkout_order()
+    print("Successfull login")
